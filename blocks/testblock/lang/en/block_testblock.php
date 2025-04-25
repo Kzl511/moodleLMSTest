@@ -21,7 +21,11 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+use function DI\string;
+
 $string['testblock:addinstance'] = 'Add a new test block';
 $string['testblock:myaddinstance'] = 'Add a new test block to Dashboard';
 $string['testblock'] = 'test block';
 $string['pluginname'] = 'test block';
+$string['showcourses'] = 'Show courses';
+$string['showcoursesdescription'] = 'Show courses instead of users';
