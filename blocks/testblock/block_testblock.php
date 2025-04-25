@@ -34,14 +34,19 @@ class block_testblock extends block_base {
             return $this->content;
         }
 
-        $userstring = '';
-        $users = $DB->get_records('user');
-        foreach ($users as $user) {
-            $userstring .= $user->firstname . '' .$user->lastname . '<br>';
+        $content = '';
+        // $users = $DB->get_records('user');
+        // foreach ($users as $user) {
+        //     $content .= $user->firstname . ' ' .$user->lastname . '<br>';
+        // }
+
+        $courses = $DB->get_records('course');
+        foreach ($courses as $course) {
+            $content .= $course->fullname . '<br>';
         }
 
         $this->content = new stdClass;
-        $this->content->text = $userstring;
+        $this->content->text = $content;
         $this->content->footer = 'this is a footer';
         return $this->content;
     }
