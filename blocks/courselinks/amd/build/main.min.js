@@ -27,12 +27,13 @@ define(['jquery', 'core/ajax', 'core/notification'], function($, ajax, notificat
                     added = result[i].added;
                     views = result[i].views;
 
-                    $('ul#mod_list').append('<li>' + id + ' - <a href = ">' + names + '</a> - ' + added + ' (' + views + ')</li>');
+                    $('ul#mod_list').append('<li>'+ id+' - <a href="'+url+'">'+names+'</a> - '+added+' ('+views+')</li>');
                 } 
 
                 if (len == 0) {
                     $('ul#mod_list').append('<li>No Records Found</li>');
                 }
+                
             }).fail(function() {
                 message = 'ERROR';
                 notification.addNotification({

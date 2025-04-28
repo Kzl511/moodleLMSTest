@@ -2,6 +2,8 @@
 
 use core_external\external_function_parameters;
 use core_external\external_value;
+use core_external\external_multiple_structure;
+use core_external\external_single_structure;
 
 defined('MOODLE_INTERNAL') || die();
 
@@ -14,18 +16,19 @@ class block_courselinks_external extends core_course_external {
  
     public static function get_course_modules_parameters() {
         return new external_function_parameters([
-            'course_id' => new external_value(PARAM_INT, 'Current Course Id', VALUE_DEFAULT, 0)
+            'courseid' => new external_value(PARAM_INT, 'Current Course Id', VALUE_DEFAULT, 0)
         ]);
     }
 
     public static function get_course_modules($courseid) {
         global $DB, $USER;
-        $allmodules = $activitlist = array();
+
+        $allmodules = $activitylist = array();
         $params = self::validate_parameters(self::get_course_modules_parameters(), [
             'courseid' => $courseid
         ]);
         
-        $params = array('id'=> $courseid);
+        $params = array('id' => $courseid);
         $course = $DB->get_record('course', $params, '*', MUST_EXIST);
 
         $modinfo = get_fast_modinfo($course);
@@ -38,15 +41,15 @@ class block_courselinks_external extends core_course_external {
             if (!$module->visible) {
                 $modname .= ' ' . get_string('hiddenwithbrackets');
             }
-            $linkurl = new moodle_url($moodle->url, array());
+            $linkurl = new moodle_url($module->url, array());
             $views = report_outline_user_outline($USER->id, $module->id, $modname, $module->instance);
             if ($views->info == null) {
                 $viewed = '0 views';
             } else {
                 $viewed = $views->info;
             }
-            allmodules[] = [
-                'id' => $module_id,
+            $allmodules[] = [
+                'id' => $module->id,
                 'name' => $modname,
                 'url' => $linkurl->out(false),
                 'added' => userdate($module->added, '%d-%m-$Y'),
