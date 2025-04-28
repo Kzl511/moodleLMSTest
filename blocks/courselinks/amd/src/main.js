@@ -5,9 +5,7 @@ define(['jquery', 'core/ajax', 'core/notification'], function($, ajax, notificat
             var promises = ajax.call([
                 {
                     methodname: 'block_courselinks_get_course_modules',
-                    args: {
-                        courseid: crs
-                    }
+                    args: { courseid: crs }
                 }
             ]);
 
@@ -15,32 +13,27 @@ define(['jquery', 'core/ajax', 'core/notification'], function($, ajax, notificat
                 console.log(result);
 
                 var len = result.length;
+                var $ul = $('<ul>', {
+                    style: 'list-style-type:none;',
+                    id: 'mod_list'
+                }).appendTo('[data-region="course-links"]');
 
-                $('[data-region="course-links"]').append(
-                    '<ul style="list-style-type:none;" id="mod_list"></ul>'
-                );
-
-                for (var i = 0; i < len; i++) {
-                    id = result[i].id;
-                    names = result[i].name;
-                    url = result[i].url;
-                    added = result[i].added;
-                    views = result[i].views;
-
-                    $('ul#mod_list').append('<li>'+ id+' - <a href="'+url+'">'+names+'</a> - '+added+' ('+views+')</li>');
-                } 
-
-                if (len == 0) {
-                    $('ul#mod_list').append('<li>No Records Found</li>');
+                for (let i = 0; i < len; i++) {
+                    let { id, name, url, added, views } = result[i];
+                    $ul.append(`<li>${id} - <a href="${url}">${name}</a> - ${added} (${views})</li>`);
                 }
-                
-            }).fail(function() {
-                message = 'ERROR';
+
+                if (len === 0) {
+                    $ul.append('<li>No Records Found</li>');
+                }
+
+            }).fail(function(error) {
+                console.log(error); // Now you will see real error details
                 notification.addNotification({
                     type: 'error',
-                    message: 'Exception: Error Displaying Course Modules.'
+                    message: 'Error: ' + (error.message || 'Error displaying course modules.')
                 });
             });
         }
     };
-})
+});
