@@ -57,4 +57,6 @@ $newquotebutton = html_writer::link(
     ['class' => 'btn btn-primary', 'style' => 'margin-top: 20px; display: inline-block;']
 );
 
+echo html_writer::div($newquotebutton, 'centered');
+
 echo $OUTPUT->footer();
