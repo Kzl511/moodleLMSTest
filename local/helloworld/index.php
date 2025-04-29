@@ -16,7 +16,7 @@ echo $OUTPUT->header();
 echo html_writer::tag('p', get_string('helloworld', 'local_helloworld'));
 
 $link = new moodle_url('/local/helloworld/index.php', ['showtable' => 1]);
-echo html_writer::link($link, 'Show Table', ['class' => 'btn btn-primary']);
+echo html_writer::link($link, get_string('showtable', 'local_helloworld'), ['class' => 'btn btn-primary']);
 
 if (optional_param('showtable', 0, PARAM_INT)) {
     $table = new html_table();
