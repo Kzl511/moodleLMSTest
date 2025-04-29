@@ -29,7 +29,7 @@ if (optional_param('showtable', 0, PARAM_INT)) {
     echo html_writer::table($table);
 }
 
-require_once(_DIR_ . '/form.php');
+require_once(__DIR__ . '/form.php');
 $form = new local_helloworld_form();
 if ($form->is_cancelled()) {
     redirect($PAGE->url);
