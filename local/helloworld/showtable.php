@@ -39,4 +39,6 @@ if (!empty($records)) {
     echo $OUTPUT->notification('No records found.', 'notifymessage');
 }
 
+echo html_writer::link(new moodle_url('/local/helloworld/index.php'), get_string('goback', 'local_helloworld'));
+
 echo $OUTPUT->footer();
