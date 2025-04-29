@@ -1,8 +1,8 @@
-<?php 
+<?php
 defined('MOODLE_INTERNAL') || die();
 
-$functions = array (
-    'block_courselinks_get_course_modules' => array (
+$functions = array(
+    'block_courselinks_get_course_modules' => array(
         'classpath' => 'block/courselinks/classes/external.php',
         'classname' => 'block_courselinks_external',
         'methodname' => 'get_course_modules',
