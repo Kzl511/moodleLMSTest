@@ -30,7 +30,7 @@ if (!empty($records)) {
         echo html_writer::tag('tr',
             html_writer::tag('td', $record->id) . 
             html_writer::tag('td', s($record->name)) . 
-            html_writer::tag('td', userdate($record->timecreated))
+            html_writer::tag('td', userdate(strtotime($record->timecreated)))
         );
     }
     echo html_writer::end_tag('tbody');
