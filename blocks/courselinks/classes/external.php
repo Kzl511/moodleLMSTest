@@ -52,7 +52,7 @@ class block_courselinks_external extends core_course_external {
                 'id' => $module->id,
                 'name' => $modname,
                 'url' => $linkurl->out(false),
-                'added' => userdate($module->added, '%d-%m-$Y'),
+                'added' => userdate($module->added, '%d-%m-%Y'),
                 'views' => $viewed
             ];
         }
