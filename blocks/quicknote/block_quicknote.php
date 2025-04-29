@@ -15,8 +15,10 @@ class block_quicknote extends block_base {
         $this->content = new stdClass();
         $context = context_system::instance();
 
+        // Get current note
         $note = $DB->get_field('block_quicknote', 'note', ['userid' => $USER->id], IGNORE_MISSING);
 
+        // Display form
         $formaction = new moodle_url('/blocks/quicknote/save.php');
         $this->content->text = '
             <form method="post" action="'.$formaction.'">
@@ -25,6 +27,7 @@ class block_quicknote extends block_base {
                 <input type="submit" value="'.get_string('save', 'block_quicknote').'">
             </form>
         ';
+
         return $this->content;
     }
 
