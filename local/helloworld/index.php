@@ -45,6 +45,8 @@ if ($mform->is_cancelled()) {
     $newid = $DB->insert_record('helloworld', $record);
 
     echo $OUTPUT->notification("Hello, " . s($data->yourname) . "!", 'notifysuccess');
+} else {
+    $mform->display();
 }
 
 // echo $OUTPUT->single_button(
