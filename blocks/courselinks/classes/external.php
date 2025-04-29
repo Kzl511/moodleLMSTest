@@ -1,5 +1,7 @@
 <?php
 
+namespace block_courselinks;
+
 use core_external\external_function_parameters;
 use core_external\external_value;
 use core_external\external_multiple_structure;
@@ -12,7 +14,7 @@ require_once($CFG->dirroot . '/course/lib.php');
 require_once($CFG->dirroot . '/course/externallib.php');
 require_once($CFG->dirroot . '/report/outline/locallib.php');
 
-class block_courselinks_external extends core_course_external {
+class external extends \core_course_external {
  
     public static function get_course_modules_parameters() {
         return new external_function_parameters([
