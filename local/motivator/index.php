@@ -51,4 +51,10 @@ if ($author) {
     echo html_writer::tag('p', '- ' . s($author), ['class' => 'author']);
 }
 
+$newquotebutton = html_writer::link(
+    new moodle_url('/local/motivator/index.php'),
+    get_string('newquote', 'local_motivator'),
+    ['class' => 'btn btn-primary', 'style' => 'margin-top: 20px; display: inline-block;']
+);
+
 echo $OUTPUT->footer();
