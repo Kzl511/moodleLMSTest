@@ -4,6 +4,7 @@ defined('MOODLE_INTERNAL') || die();
 require_once($CFG->libdir.'/authlib.php');
 
 class auth_plugin_basicdemo extends auth_plugin_base {
+    
     public function __construct() {
         $this->authtype = 'basicdemo';
         $this->config = get_config('auth_basicdemo');
