@@ -23,33 +23,36 @@ class auth_plugin_basicdemo extends auth_plugin_base {
 
         global $DB;
 
-        $record = $DB->get_record('basicdemo_users', ['username' => $username]);
+        $user = $DB->get_record('user', ['username' => $username, 'deleted' => 0, 'suspended' => 0]);
 
-        if ($record) {
-            if ($record->password === $password) {
-                return true;
-            }
-        }
-        return false;
+        if (!$user) {
+            return false;
+        } 
+        return validate_internal_user_password($user, $password);
+        
     }
 
-    // public function can_create_users() {
-    //     return true;
-    // }
+    public function user_update_password($user, $newpassword) {
+        return true;
+    }
 
-    // public function create_user($user, $password) {
-    //     global $DB;
+    public function can_change_password() {
+        return true;
+    }
 
-    //     $user->auth = $this->authtype;
-    //     $user->id = user_create_user($user, false, false);
-    //     return $user->id;
-    // }
+    public function loginpage_hook() {
+        global $DB, $SESSION;
 
-    // public function user_update_password($user, $newpassword) {
-    //     return true;
-    // }
+        if (!empty($_POST['username']) && !empty($_POST['password'])) {
+            $username = trim(core_text::strtolower($_POST['username']));
+            $password = $_POST['password'];
 
-    // public function loginpage_hook() {
-        
-    // }
+            if ($DB->record_exists('user', ['username' => $username, 'deleted' => 0])) {
+                $user = $DB->get_record('user', ['username' => $username, 'deleted' => 0]);
+                if (validate_internal_user_password($user, $password)) {
+                    $SESSION->wantsurl = new moodle_url('/local/welcome/index.php');
+                }
+            }
+        }
+    }
 }
