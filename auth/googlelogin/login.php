@@ -22,10 +22,12 @@ $client->addScope('profile');
 if (!isset($_GET['code'])) {
     redirect($client->createAuthUrl());
 } else {
-    $client->authenticate($_GET['code']);
-    $token = $client->getAccessToken();
+    $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
+    if (isset($token['error'])) {
+        throw new Exception('Google OAuth error: ' . $token['error_description']);
+    }
+    
     $client->setAccessToken($token);
-
     $oauth2 = new Google_Service_Oauth2($client);
     $userinfo = $oauth2->userinfo->get();
 
