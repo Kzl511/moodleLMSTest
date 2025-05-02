@@ -17,7 +17,7 @@ $CFG->dboptions = array (
   'dbsocket' => '',
 );
 
-$CFG->wwwroot   = 'https://e3d9-118-189-156-214.ngrok-free.app/moodle';
+$CFG->wwwroot   = 'http://10.64.23.75/moodle';
 $CFG->dataroot  = '/var/www/moodledata';
 $CFG->admin     = 'admin';
 
