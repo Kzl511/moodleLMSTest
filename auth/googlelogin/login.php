@@ -38,7 +38,7 @@ if (!isset($_GET['code'])) {
         complete_user_login($user);
         redirect(new moodle_url('/'));
     } else {
-        $user = create_user_record($email, '', 'google_login');
+        $user = create_user_record($email, '', 'googlelogin');
         $user->firstname = $firstname;
         $user->lastname = $lastname;
         $user->email = $email;
