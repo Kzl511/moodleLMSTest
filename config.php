@@ -11,16 +11,16 @@ $CFG->dbname    = 'moodleLMS';
 $CFG->dbuser    = 'moodleLMSAdmin';
 $CFG->dbpass    = 'absolute6464!';
 $CFG->prefix    = 'mdl_';
-$CFG->dboptions = array (
+$CFG->dboptions = array(
   'dbpersist' => 0,
   'dbport' => 1433,
   'dbsocket' => '',
 );
 
-$CFG->wwwroot   = 'https://c0f0-118-189-156-214.ngrok-free.app/moodle';
+$CFG->wwwroot   = 'http://10.64.23.75/moodle';
 $CFG->dataroot  = '/var/www/moodledata';
 $CFG->admin     = 'admin';
-$CFG->sslproxy = true;
+// $CFG->sslproxy = true;
 
 $CFG->directorypermissions = 0777;
 
