@@ -21,7 +21,7 @@ class auth_plugin_googlelogin extends auth_plugin_base {
         return false;
     }
 
-    public function loginpage_idp_list()
+    public function loginpage_idp_list($wantsurl)
     {
         $url = new moodle_url('/auth/googlelogin/login.php');
         return [
