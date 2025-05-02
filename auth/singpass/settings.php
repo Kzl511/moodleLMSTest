@@ -1,8 +1,9 @@
 <?php
-
 defined('MOODLE_INTERNAL') || die();
 
 if ($hassiteconfig) {
+    $settings = null; // Add this line
+
     $settings = new admin_settingpage('authsetting_singpass', get_string('pluginname', 'auth_singpass'));
 
     $settings->add(new admin_setting_configtext(
