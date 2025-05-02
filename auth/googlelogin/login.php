@@ -12,9 +12,6 @@ $client_id = get_config('auth_googlelogin', 'clientid');
 $client_secret = get_config('auth_googlelogin', 'clientsecret');
 $redirect_uri = (new moodle_url('/auth/googlelogin/login.php'))->out(false);
 
-require_once($CFG->dirroot.'/lib/google/Google_Client.php');
-require_once($CFG->dirroot.'/lib/google/Google_Service_Oauth2.php');
-
 $client = new Google_Client();
 $client->setClientId($client_id);
 $client->setClientSecret($client_secret);
