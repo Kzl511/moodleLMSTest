@@ -1,3 +1,4 @@
 <?php
-$string['pluginname'] = 'Singpass authentication';
-$string['auth_singpassdescription'] = 'Authenticate users via Singpass login.';
+$string['pluginname'] = 'Singpass Login';
+$string['auth_singpassdescription'] = 'Login using Singpass.';
+$string['loginwithsingpass'] = 'Login with Singpass';
