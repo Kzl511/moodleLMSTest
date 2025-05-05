@@ -35,10 +35,10 @@ $buttonlink = html_writer::link($authurl, $buttoncontent, [
     'onmouseout' => "this.style.backgroundColor='#f9f9f9';"
 ]);
 
-// Center the button on the page
-echo html_writer::div($buttonlink, 'singpass-login-wrapper', [
-    'style' => 'text-align: center; margin-top: 60px;'
-]);
+// // Center the button on the page
+// echo html_writer::div($buttonlink, 'singpass-login-wrapper', [
+//     'style' => 'text-align: center; margin-top: 60px;'
+// ]);
 
 // Output the footer
 echo $OUTPUT->footer();
