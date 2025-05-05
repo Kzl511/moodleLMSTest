@@ -13,7 +13,7 @@ echo $OUTPUT->header();
 
 // Styled heading
 $heading = html_writer::tag('div', 'Login with', [
-    'style' => 'text-align: center; font-size: 2em; font-weight: 600; margin-bottom: 10px;'
+    'style' => 'text-align: left; font-size: 4em; font-weight: 600; margin-bottom: 10px;'
 ]);
 echo $heading;
 
