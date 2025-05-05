@@ -12,7 +12,7 @@ if (!isset($_SESSION['singpass_state']) || $_SESSION['singpass_state'] !== $stat
 unset($_SESSION['singpass_state']);
 
 // Configuration
-$client_id = 'YOUR_CLIENT_ID';
+$client_id = 'sDRIq83pbDFJyJHrd7hIBtEX51RPVDbE';
 $client_secret = 'YOUR_CLIENT_SECRET';
 $redirect_uri = (new moodle_url('/auth/singpass/callback.php'))->out(false);
 

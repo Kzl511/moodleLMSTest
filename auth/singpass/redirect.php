@@ -1,20 +1,19 @@
 <?php
-require_once(__DIR__ . '/../../config.php');
+require('../../config.php');
+require_once($CFG->dirroot . '/auth/singpass/classes/loginlib.php');
 
-$client_id = 'YOUR_CLIENT_ID';
-$redirect_uri = new moodle_url('/auth/singpass/callback.php');
-$state = bin2hex(random_bytes(16)); // CSRF protection
+use auth_singpass\loginlib;
 
-// Save state in session for verification in callback
-$_SESSION['singpass_state'] = $state;
+$code = required_param('code', PARAM_RAW);
+$state = required_param('state', PARAM_RAW);
 
-// Singpass authorization URL (sandbox/test endpoint example)
-$auth_url = 'https://sandbox.api.singpass.gov.sg/v1/oauth/authorize?' . http_build_query([
-    'response_type' => 'code',
-    'client_id' => $client_id,
-    'redirect_uri' => $redirect_uri->out(false),
-    'scope' => 'openid',
-    'state' => $state
-]);
+if ($state !== $_SESSION['singpass_state']) {
+    throw new moodle_exception('Invalid state');
+}
 
-redirect($auth_url);
+$userinfo = loginlib::exchange_code_for_user($code);
+
+$userid = loginlib::find_or_create_user($userinfo);
+complete_user_login(core_user::get_user($userid));
+
+redirect($CFG->wwwroot);
