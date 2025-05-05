@@ -8,30 +8,35 @@ $PAGE->set_title('Login with Singpass');
 $PAGE->set_heading('Login with Singpass');
 $PAGE->set_pagelayout('login');
 
-// Output the page header and heading
+// Output the page header
 echo $OUTPUT->header();
-echo $OUTPUT->heading("Welcome to Singpass Login");
+
+// Styled heading
+$heading = html_writer::tag('div', 'Login with', [
+    'style' => 'text-align: center; font-size: 2em; font-weight: 600; margin-bottom: 10px;'
+]);
+echo $heading;
 
 // Define the URL to redirect for Singpass authentication
 $authurl = new moodle_url('/auth/singpass/redirect.php');
 
 // Define the image to use as a login button
-$imageurl = new moodle_url('/auth/singpass/logo/singpass_logo_fullcolours-1.png'); // Make sure the image exists
+$imageurl = new moodle_url('/auth/singpass/logo/singpass_logo_fullcolours-1.png');
 $image = html_writer::empty_tag('img', [
     'src' => $imageurl,
     'alt' => 'Login with Singpass',
-    'style' => 'height: 60px;' // Adjust image size as needed
+    'style' => 'height: 60px;'
 ]);
 
-// Wrap the image in a link
+// Wrap image in link
 $buttonhtml = html_writer::link($authurl, $image, [
     'class' => 'btn',
-    'style' => 'margin-top: 20px; display: inline-block;'
+    'style' => 'display: inline-block;'
 ]);
 
-// Center the button
+// Center the image/button
 echo html_writer::div($buttonhtml, 'singpass-login-button', [
-    'style' => 'text-align: center; margin-top: 40px;'
+    'style' => 'text-align: center; margin-top: 10px;'
 ]);
 
 // Output the page footer
