@@ -4,7 +4,7 @@ defined('MOODLE_INTERNAL') || die();
 $settings->add(new admin_setting_configtext(
     'auth_singpass/clientid',
     'Singpass App ID',
-    'sDRIq83pbDFJyJHrd7hIBtEX51RPVDbE',
+    'dfkZ2MwYtkmA01ZVY9B5UOze1ocNWKy5',
     ''
 ));
 
