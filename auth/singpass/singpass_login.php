@@ -1,6 +1,5 @@
 <?php
 require_once(__DIR__ . '/../../config.php');
-require_once($CFG->libdir . '/outputrenderers.php');
 
 // Set up the page
 $PAGE->set_url(new moodle_url('/auth/singpass/singpass_login.php'));
