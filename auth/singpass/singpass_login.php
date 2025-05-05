@@ -17,7 +17,7 @@ $imageurl = new moodle_url('/auth/singpass/logo/singpass_logo_fullcolours-1.png'
 
 // Create the "Login with" + logo button content
 $logintext = html_writer::tag('span', 'Login with', [
-    'style' => 'font-family: Poppins, sans-serif; font-size: 16pt; font-weight: bold; vertical-align: middle; margin-right: 10px;'
+    'style' => 'font-family: Poppins, sans-serif; font-size: 16pt; font-weight: bold; vertical-align: middle; margin-right: 10px; color: black;'
 ]);
 
 $imageinline = html_writer::empty_tag('img', [
