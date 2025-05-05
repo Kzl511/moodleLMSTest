@@ -4,13 +4,13 @@ defined('MOODLE_INTERNAL') || die();
 $settings->add(new admin_setting_configtext(
     'auth_singpass/clientid',
     'Singpass App ID',
-    'Your registered App ID from Singpass',
+    'sDRIq83pbDFJyJHrd7hIBtEX51RPVDbE',
     ''
 ));
 
 $settings->add(new admin_setting_configtext(
     'auth_singpass/redirecturi',
     'Redirect URI',
-    'Your plugin\'s callback URL, e.g., https://yourdomain/auth/singpass/redirect.php',
+    'https://8e5c-118-189-156-214.ngrok-free.app/moodle/auth/singpass/redirect.php',
     ''
 ));

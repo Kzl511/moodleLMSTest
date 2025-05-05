@@ -40,25 +40,9 @@ class loginlib {
         return ['sub' => $decoded->sub];
     }
 
-    public static function find_or_create_user($userinfo) {
+    public static function find_user_by_email($email) {
         global $DB;
-
-        $username = strtolower($userinfo['sub']);
-        $user = $DB->get_record('user', ['username' => $username, 'auth' => 'singpass']);
-
-        if ($user) {
-            return $user->id;
-        }
-
-        $newuser = new \stdClass();
-        $newuser->auth = 'singpass';
-        $newuser->confirmed = 1;
-        $newuser->username = $username;
-        $newuser->firstname = 'Singpass';
-        $newuser->lastname = 'User';
-        $newuser->email = $username . '@example.com';
-        $newuser->timecreated = time();
-
-        return $DB->insert_record('user', $newuser);
+        return $DB->get_record('user', ['email' => $email, 'auth' => 'singpass']);
     }
+    
 }
