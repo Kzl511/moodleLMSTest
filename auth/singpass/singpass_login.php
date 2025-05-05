@@ -16,7 +16,7 @@ echo $OUTPUT->heading("Welcome to Singpass Login");
 $authurl = new moodle_url('/auth/singpass/redirect.php');
 
 // Define the image to use as a login button
-$imageurl = new moodle_url('/auth/singpass/logo/singpass_logo_fullcolors-1.png'); // Make sure the image exists
+$imageurl = new moodle_url('/auth/singpass/logo/singpass_logo_fullcolours-1-1.png'); // Make sure the image exists
 $image = html_writer::empty_tag('img', [
     'src' => $imageurl,
     'alt' => 'Login with Singpass',
