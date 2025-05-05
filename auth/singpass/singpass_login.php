@@ -23,14 +23,14 @@ $logintext = html_writer::tag('span', 'Login with', [
 $imageinline = html_writer::empty_tag('img', [
     'src' => $imageurl,
     'alt' => 'Singpass logo',
-    'style' => 'height: 40px; vertical-align: middle;'
+    'style' => 'vertical-align: middle;'
 ]);
 
 // Combine into a clickable link styled as a button
 $buttoncontent = $logintext . $imageinline;
 
 $buttonlink = html_writer::link($authurl, $buttoncontent, [
-    'style' => 'display: inline-block; padding: 10px 20px; border: 2px solid #ccc; border-radius: 8px; text-decoration: none; background-color: #f9f9f9; transition: background-color 0.3s;',
+    'style' => 'display: inline-block; padding: 10px 20px; border: 1px solid #ccc; border-radius: 8px; text-decoration: none; background-color: #f9f9f9; transition: background-color 0.3s;',
     'onmouseover' => "this.style.backgroundColor='#e6e6e6';",
     'onmouseout' => "this.style.backgroundColor='#f9f9f9';"
 ]);
