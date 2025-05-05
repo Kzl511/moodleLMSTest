@@ -23,7 +23,7 @@ $logintext = html_writer::tag('span', 'Login with', [
 $imageinline = html_writer::empty_tag('img', [
     'src' => $imageurl,
     'alt' => 'Singpass logo',
-    'style' => 'vertical-align: middle;'
+    'style' => 'height: 16pt; vertical-align: middle;'
 ]);
 
 // Combine into a clickable link styled as a button
