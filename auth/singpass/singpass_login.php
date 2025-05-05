@@ -1,5 +1,6 @@
 <?php
-require('../../config.php');
+require_once(__DIR__ . '/../../config.php');
+require_logout();
 
 $client_id = get_config('auth_singpass', 'clientid');
 $redirect_uri = get_config('auth_singpass', 'redirecturi');
