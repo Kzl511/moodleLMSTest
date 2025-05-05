@@ -11,32 +11,47 @@ $PAGE->set_pagelayout('login');
 // Output the page header
 echo $OUTPUT->header();
 
-// Styled heading
-$heading = html_writer::tag('div', 'Login with', [
-    'style' => 'text-align: left; font-size: 4em; font-weight: 600; margin-bottom: 10px;'
+// Define the image URL for the logo
+$imageurl = new moodle_url('/auth/singpass/logo/singpass_logo_fullcolours-1.png');
+
+// Create the "Login with" text
+$logintext = html_writer::tag('span', 'Login with', [
+    'style' => 'font-size: 2em; font-weight: 600; vertical-align: middle; margin-right: 10px;'
 ]);
-echo $heading;
+
+// Create the logo image inline
+$imageinline = html_writer::empty_tag('img', [
+    'src' => $imageurl,
+    'alt' => 'Singpass logo',
+    'style' => 'height: 40px; vertical-align: middle;'
+]);
+
+// Combine the text and image into one heading row
+$combinedheading = html_writer::div($logintext . $imageinline, 'login-heading-combined', [
+    'style' => 'text-align: center; margin-bottom: 30px;'
+]);
+
+echo $combinedheading;
 
 // Define the URL to redirect for Singpass authentication
 $authurl = new moodle_url('/auth/singpass/redirect.php');
 
-// Define the image to use as a login button
-$imageurl = new moodle_url('/auth/singpass/logo/singpass_logo_fullcolours-1.png');
-$image = html_writer::empty_tag('img', [
+// Create the image as a login button
+$imagebutton = html_writer::empty_tag('img', [
     'src' => $imageurl,
     'alt' => 'Login with Singpass',
     'style' => 'height: 60px;'
 ]);
 
-// Wrap image in link
-$buttonhtml = html_writer::link($authurl, $image, [
+// Wrap the image in a clickable link
+$buttonhtml = html_writer::link($authurl, $imagebutton, [
     'class' => 'btn',
     'style' => 'display: inline-block;'
 ]);
 
-// Center the image/button
+// Center the button below the heading
 echo html_writer::div($buttonhtml, 'singpass-login-button', [
-    'style' => 'text-align: left; margin-top: 10px;'
+    'style' => 'text-align: center; margin-top: 20px;'
 ]);
 
 // Output the page footer
