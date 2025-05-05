@@ -36,10 +36,5 @@ echo $combinedheading;
 // Define the URL to redirect for Singpass authentication
 $authurl = new moodle_url('/auth/singpass/redirect.php');
 
-// Center the button below the heading
-echo html_writer::div($buttonhtml, 'singpass-login-button', [
-    'style' => 'text-align: center; margin-top: 20px;'
-]);
-
 // Output the page footer
 echo $OUTPUT->footer();
