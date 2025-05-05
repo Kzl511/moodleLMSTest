@@ -36,7 +36,7 @@ $buttonhtml = html_writer::link($authurl, $image, [
 
 // Center the image/button
 echo html_writer::div($buttonhtml, 'singpass-login-button', [
-    'style' => 'text-align: center; margin-top: 10px;'
+    'style' => 'text-align: left; margin-top: 10px;'
 ]);
 
 // Output the page footer
